@@ -1,36 +1,33 @@
 # 🛒 Simple POS (Point of Sale) System
 
-Aplikasi Kasir berbasis Web yang ringan dan cepat, dibangun menggunakan **PHP Native (REST API)** dan **MySQL**. Aplikasi ini dirancang dengan arsitektur *decoupled* di mana Backend (API) terpisah dari Frontend (View), sehingga mudah dikembangkan lebih lanjut (misalnya diintegrasikan dengan aplikasi Android).
+A lightweight, web-based Point of Sale application built with **PHP Native (REST API)** and **MySQL**. This project demonstrates a decoupled architecture where the Frontend (Single Page Application logic) interacts with the Backend via JSON APIs.
 
-## 🚀 Fitur Utama
+## 🚀 Key Features
 
-* **Autentikasi Aman**: Login sistem menggunakan PHP Session dan Password Hashing (`bcrypt`).
-* **Transaksi Real-time**:
-    * Pencarian produk instan (Live Search).
-    * Keranjang belanja interaktif (Javascript).
-    * Kalkulasi otomatis (Total & Kembalian).
-* **Manajemen Stok**: Stok produk berkurang otomatis saat transaksi berhasil (menggunakan *Database Transaction* untuk mencegah data korup).
-* **Cetak Struk**: Mendukung format cetak untuk **Printer Thermal** (58mm/80mm) menggunakan CSS `@media print`.
-* **Dashboard Laporan**: Visualisasi omzet harian, jumlah transaksi, dan produk terlaris.
+* **Secure Authentication**: Login system using PHP Sessions and `bcrypt` password hashing.
+* **Transactional Integrity**: Uses MySQL **Database Transactions** (`beginTransaction` / `commit`) to ensure stock is only deducted when a transaction is fully successful.
+* **Real-time Cart**: Interactive shopping cart built with Vanilla JavaScript (no heavy frontend frameworks).
+* **Thermal Printing Support**: Auto-formatted receipts for 58mm/80mm thermal printers using CSS `@media print`.
+* **Sales Dashboard**: Real-time reporting of daily revenue, total transactions, and top-selling products.
 
-## 🛠️ Teknologi yang Digunakan
+## 🛠️ Tech Stack
 
 * **Backend**: PHP 8.x (PDO Driver), MySQL/MariaDB.
-* **Frontend**: HTML5, Vanilla JavaScript (Fetch API), Bootstrap 5.
-* **Arsitektur**: RESTful API.
+* **Frontend**: HTML5, Bootstrap 5 CSS, Vanilla JavaScript (Fetch API).
+* **Architecture**: RESTful API.
 
-## 📂 Struktur Folder
+## 📂 Project Structure
 
 ```text
 pos-app/
-├── api/                  # Backend Logic (REST API)
-│   ├── checkout.php      # Proses transaksi & update stok
-│   ├── login.php         # Autentikasi user
-│   ├── products.php      # Mengambil data produk
-│   └── reports.php       # Data untuk dashboard
-├── config.php            # Koneksi Database
-├── database.sql          # Skema Database
-├── index.php             # Halaman Utama (Kasir)
-├── dashboard.php         # Halaman Laporan
-├── login.php             # Halaman Login
-└── README.md             # Dokumentasi Proyek
+├── api/                  # Backend Logic (REST API Endpoints)
+│   ├── checkout.php      # Transaction processing & stock updates
+│   ├── login.php         # User authentication
+│   ├── products.php      # Product fetching
+│   └── reports.php       # Dashboard analytics
+├── config.php            # Database Connection
+├── database.sql          # Database Schema & Dummy Data
+├── index.php             # Main POS Interface (Frontend)
+├── dashboard.php         # Sales Report Interface
+├── login.php             # Login Page
+└── README.md             # Project Documentation

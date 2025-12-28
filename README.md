@@ -31,3 +31,6 @@ pos-app/
 ├── dashboard.php         # Sales Report Interface
 ├── login.php             # Login Page
 └── README.md             # Project Documentation
+
+```
+Created by [ekonfy]
